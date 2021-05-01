@@ -1,27 +1,68 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Users</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.name %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PrivateEvents</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    
+  </head>
+  <body>
+    <% if flash[:notice] %>
+      <div class="notification is-primary global-notification">
+        <p class="notice"><%= notice %></p>
+      </div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New User', new_user_path %>
+    <% if flash[:alert] %>
+      <div class="notification is-danger global-notification">
+        <p class="alert"><%= alert %></p>
+      </div>
+    <% end %>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <%= link_to root_path, class: "navbar-item" do %>
+          <h1 class="title is-8">Microverse - Eventbrite</h1>
+        <% end %>
+        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+      <div id="navbarExample" class="navbar-menu">
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="field is-grouped">
+              <p class="control">
+                <%= link_to "Create event", new_event_path, class: "button is-black" %>
+              </p>
+              <% if current_user %>
+                <p class="control">
+                  <%= link_to current_user.name, user_path(current_user), class: "button is-black" %>
+                </p>
+                <p>
+                  <%= link_to "Logout", logout_path, class: "button is-black" %>
+                </p>
+              <% else %>
+                <p class="control">
+                  <%= link_to 'Sign In', login_path, class: "button is-black" %>
+                </p>
+                <p class="control">
+                  <%= link_to 'Sign Up', signup_path, class: "button is-black" %>
+                </p>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <%= yield %>
+  </body>
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        Created by <a href="https://github.com/errea">Eri-Julius</a> Courtesy Microverse &copy
+      </p>
+    </div>
+  </footer>
+</html>
