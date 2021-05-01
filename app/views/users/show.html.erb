@@ -1,44 +1,45 @@
 <div class="section">
   <div class="container">
     <div class="columns is-centered">
-      <div class="column is-5">
-        <div class="box">
-          <h2 class="title is-2 is-spaced has-text-centered mb-6">Guest List</h2>
-          <div class="columns is-centered">
-            <table class="table is-fullwidth is-hoverable">
-              <tbody>
-                <th class="has-text-centered">Your Name</th>
-                <th class="has-text-centered">Status</th>
-                <th class="has-text-centered">Action</th>
-                <% @users.reject { |user| user == Event.find(params[:event_id]).creator }.each do |user| %>
-                  <% enrollment = Enrollment.find_by(event_id: params[:event_id], user_id: user.id) %>
-                  <tr>
-                    <td class="has-text-centered">
-                      <%= user.name %>
-                    </td>
-                    <% unless enrollment.nil? || enrollment.status.nil? %>
-                      <td class="has-text-centered">
-                        <span class="tag is-primary is-medium is-light"><%= enrollment.status %><span>
-                      </td>
-                    <% else %>
-                      <td></td>
-                    <% end %>
-                    <% if enrollment.nil? %>
-                      <td class="has-text-centered">
-                        <%= button_to "Invite", enrollments_path(event_id: params[:event_id], user_id: user.id), class: "button is-primary is-small" %>
-                      </td>
-                    <% else %>
-                      <td class="has-text-centered">
-                        <%= button_to "Cancel Invitation", enrollment_path(id: enrollment.id, event_id: params[:event_id]), method: :delete, class: "button is-danger is-small" %>
-                      </td>
-                    <% end %>
-                  </tr>
+      <div class="column is-9">
+        <h2 class="title is-2 is-spaced has-text-centered"><%= @user.name %>'s Profile</h2>
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h3 class="subtitle is-3 has-text-centered">Your Hosted Events: <%= @user.events.count %></h3>
+            <ul>
+              <% if @user.events.empty? %>
+                <p>You have no event hosted</p>
+              <% else %>
+                <% @user.events.each do |event| %>
+                  <li class="has-text-centered"><%=link_to event.name, event_path(event) %></li>
                 <% end %>
-              </tbody>
-            </table>
+              <% end %>
+            </ul>
           </div>
-          <br/>
-          <%= link_to 'Back to Event Details', event_path(id: params[:event_id]), class: "button is-fullwidth" %>
+          <div class="column has-text-centered">
+            <h3 class="subtitle is-3">Your Upcoming Events: <%= @user.attended_events.where('date >= ?', Date.today).count %></h3>
+            <ul>
+              <% if @user.attended_events.where('date >= ?', Date.today).count.zero? %>
+                <p>Are you sure you have Plans for one?</p>
+              <% else %>
+                <% @user.attended_events.where('date >= ?', Date.today).each do |event| %>
+                  <li class="has-text-centered"><%=link_to event.name, event_path(event) %></li>
+                <% end %>
+              <% end %>
+            </ul>
+          </div>
+                    <div class="column has-text-centered">
+            <h3 class="subtitle is-3 has-text-centered">Attended Events: <%= @user.attended_events.where('date < ?', Date.today).count %></h3>
+            <ul>
+              <% if @user.attended_events.empty? %>
+                <p>You have not attented any events for now</p>
+              <% else %>
+                <% @user.attended_events.where('date < ?', Date.today).each do |event| %>
+                  <li class="has-text-centered"><%=link_to event.name, event_path(event) %></li>
+                <% end %>
+              <% end %>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
