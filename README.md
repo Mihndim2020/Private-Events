@@ -8,8 +8,8 @@
 ## Built With
 
 - Ruby
-- [Rspec](https://github.com/heartcombo/devise)
-- [Cabarya](https://github.com/heartcombo/devise)
+- [Rspec](https://relishapp.com/rspec/rspec-rails/docs/model-specs)
+- [Capybara](https://www.codewithjason.com/rails-testing-hello-world-using-rspec-capybara/)
 - Ruby on Rails
 - webpack
 - Heroku
