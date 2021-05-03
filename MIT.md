@@ -1,4 +1,4 @@
-Copyright 2021 Eri Okereafor
+Copyright 2021 Eri Okereafor & Julius Ndim
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this script and associated documentation files, to deal in the script without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the script, and to permit persons to whom the script is furnished to do so, subject to the following conditions:
 
