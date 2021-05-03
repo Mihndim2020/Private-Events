@@ -28,5 +28,17 @@ class EnrollmentController < ApplicationController
     end
     redirect_to users_path(event_id: event.id, id: enrollment.id)
   end
+
+  def update
+    @event = Event.find(params[:event_id])
+    @enrollment = Enrollment.find_by(event_id: params[:event_id], user_id: current_user.id)
+    if @enrollment && @enrollment.invited?
+      @enrollment.accepted!
+      flash[:notice] = "Thank you for signing up for the '#{@event.name}'!"
+    else
+      flash[:alert] = 'Your name is not on the invitation list'
+    end
+    redirect_to event_path(@event)
+  end
   
 end
