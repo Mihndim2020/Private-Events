@@ -1,5 +1,5 @@
 class Enrollment < ApplicationRecord
-  enum status: { invited: 0, acccepted: 1}
+  enum status: { invited: 0, acccepted: 1 }
   belongs_to :event
   belongs_to :user
 end
