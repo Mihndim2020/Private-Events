@@ -10,6 +10,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @help = User.find(@event.enrollments.accepted.map { |enr| enr.user_id })
   end
 
   def new
