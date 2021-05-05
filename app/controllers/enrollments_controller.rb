@@ -22,7 +22,7 @@ class EnrollmentsController < ApplicationController
       flash[:notice] = 'The invitation is cancelled!'
     else
       enrollment.invited!
-      #enrollment.save
+      # enrollment.save
       flash[:notice] = "You have dropped the enrollment for the #{event.name}!"
     end
     redirect_to users_path(event_id: event.id, id: enrollment.id)
