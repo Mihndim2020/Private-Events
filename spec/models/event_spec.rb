@@ -13,8 +13,8 @@ require 'rails_helper'
 # end
 
 RSpec.describe Event, type: :model do
-  let(:name) { 'simple name' }
-  user = User.create(name: 'user3')
+  let(:name) { 'eri julius' }
+  user = User.create(name: 'julius')
   describe 'An event can be created by a user and if it has all the validations' do
     it 'belongs to a user' do
       event = Event.create(user_id: user.id, name: 'event name', date: Date.today, location: 'some location',
