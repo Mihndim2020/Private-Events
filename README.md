@@ -255,8 +255,8 @@ This was an awesome rundown practice and I had a really joyful fun playing with 
  👤 **Julius**
 
 - Github: [@Mihndim2020](https://github.com/Mihndim2020)
-- Twitter: 
-- Linkedin: 
+- Twitter: [@mihndim](https://github.com/mih-julius) 
+- Linkedin: [Mih Julius](https://www.linkedin.com/mih-julius)
 
 ## 🤝 Contributing
 
