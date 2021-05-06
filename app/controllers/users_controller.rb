@@ -11,10 +11,14 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @user.save
+
+    if @user.save
     session[:user_id] = @user.id
     flash.notice = "User #{@user.name} Sign up successfully created! You are welocme, Thank you!!!"
-    redirect_to user_path(@user)
+    redirect_to user_path(@user)    
+    else
+      render :new
+    end
   end
 
   def show
