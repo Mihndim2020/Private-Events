@@ -9,7 +9,7 @@ RSpec.describe 'New User `Sign Up` Page & Existing User `Login` Page', type: :sy
     end
     it 'New User `Sign up here`' do
       visit login_path
-      expect(page).to have_content('Sign up here')
+      expect(page).to have_content('Sign Up')
     end
   end
 end
