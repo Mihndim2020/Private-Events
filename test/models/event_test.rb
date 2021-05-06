@@ -21,7 +21,6 @@ class EventTest < ActiveSupport::TestCase
     assert_not @event.valid?
   end
 
-
   # test "the truth" do
   #   assert true
   # end

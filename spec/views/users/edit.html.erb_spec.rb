@@ -11,18 +11,16 @@ RSpec.describe 'users/edit', type: :view do
     render
 
     assert_select 'form[action=?][method=?]', user_path(@user), 'post' do
-    assert_select 'input[name=?]', 'user[name]'
+      assert_select 'input[name=?]', 'user[name]'
     end
   end
 end
 
-
-
-#RSpec.describe 'Hello world', type: :system do
- # describe 'index page' do
-   # it 'shows the right content' do
-     # visit hello_world_index_path
-      #expect(page).to have_content('Hello, world!')
-   # end
- # end
-#end
+# RSpec.describe 'Hello world', type: :system do
+# describe 'index page' do
+# it 'shows the right content' do
+# visit hello_world_index_path
+# expect(page).to have_content('Hello, world!')
+# end
+# end
+# end
