@@ -13,9 +13,9 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-    session[:user_id] = @user.id
-    flash.notice = "User #{@user.name} Sign up successfully created! You are welocme, Thank you!!!"
-    redirect_to user_path(@user)    
+      session[:user_id] = @user.id
+      flash.notice = "User #{@user.name} Sign up successfully created! You are welocme, Thank you!!!"
+      redirect_to user_path(@user)
     else
       render :new
     end

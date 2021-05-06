@@ -11,9 +11,8 @@ RSpec.describe User, type: :model do
     end
 
     it 'user is not valid if name is not present' do
-      user = User.create()
+      user = User.create
       expect(user).to_not be_nil
     end
-
   end
 end
