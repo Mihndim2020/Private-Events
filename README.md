@@ -188,9 +188,9 @@ Things you may want to cover:
 For those who are not patient, here are a couple of screenshots of what it looks like
 
 <p float = 'left'>
-  <img src="img/private_events.png" alt="Private events home page" width="390" height="200">
-  <img src="img/private_events2.png" alt="Private events event card" width="180" height="200">
-  <img src="img/private_events3.png" alt="Private events guest list" width="230" height="200">
+  <img src="img/private_events.png" alt="Private events home page" width="400" height="300">
+  <img src="img/private_events2.png" alt="Private events event card" width="400" height="300">
+  <img src="img/private_events3.png" alt="Private events guest list" width="4000" height="300">
   <img src="img/rspec.png" alt="Private events guest list" width="400" height="300">
 </p>
 
