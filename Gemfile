@@ -53,15 +53,16 @@ group :development, :test do
   gem 'pry-rails', '~> 0.3.9'
 
   # The RSpec testing framework
-  gem 'rspec-rails', '~> 4.0', '>= 4.0.1'
+  gem 'rexml'
+  gem 'rspec-rails', '~> 5.0.0'
 
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '>= 3.26'
+  # gem 'capybara', '>= 3.26' -- moved to group test do
 
   # Easy installation and use of web drivers to run system tests with browsers
   # The following gems aids with the nuts and bolts
   # of interacting with the browser.
-  gem 'webdrivers'
+  # gem 'webdrivers'-- moved to group :test do
 end
 
 group :development do
@@ -80,7 +81,11 @@ group :development do
 end
 
 group :test do
+  # Adds support for Capybara system testing and selenium driver
+  gem 'capybara', '>= 3.26'
   gem 'selenium-webdriver'
+  # Easy installation and use of web drivers to run system tests with browsers
+  gem 'webdrivers'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

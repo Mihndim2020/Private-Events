@@ -26,10 +26,11 @@ ActiveRecord::Schema.define(version: 2021_05_03_143447) do
     t.string "name"
     t.date "date"
     t.string "location"
+    t.integer "user_id", null: false
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id"
+    t.index ["user_id"], name: "index_events_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -40,4 +41,5 @@ ActiveRecord::Schema.define(version: 2021_05_03_143447) do
 
   add_foreign_key "enrollments", "events"
   add_foreign_key "enrollments", "users"
+  add_foreign_key "events", "users"
 end
