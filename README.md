@@ -191,6 +191,7 @@ For those who are not patient, here are a couple of screenshots of what it looks
   <img src="img/private_events.png" alt="Private events home page" width="390" height="200">
   <img src="img/private_events2.png" alt="Private events event card" width="180" height="200">
   <img src="img/private_events3.png" alt="Private events guest list" width="230" height="200">
+  <img src="img/rspec.png" alt="Private events guest list" width="230" height="200">
 </p>
 
 ## Functionality
